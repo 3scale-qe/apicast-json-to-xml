@@ -24,7 +24,7 @@ function _M:body_filter(context)
   end
 
   local response_decoded =  json.decode(ngx.arg[1])
-  local response = xml2lua.toXml(response_decoded)
+  local response = xml2lua.toXml(response_decoded, "response")
   ngx.arg[1] = response
   ngx.arg[2] = true
 end
