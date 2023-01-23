@@ -13,6 +13,8 @@ ENV LUA_PATH="/usr/lib64/lua/5.1/?.lua;/usr/local/share/lua/5.1/?.lua;"
 COPY Roverfile .
 COPY Roverfile.lock .
 
+RUN git config --global url.https://github.com/.insteadOf git://github.com/
+
 RUN rover install --roverfile=/opt/app-root/src/Roverfile
 
 COPY policies/json_to_xml src/apicast/policy/json_to_xml
